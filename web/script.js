@@ -1268,7 +1268,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <td>${gpu.model}</td>
                     <td>${gpu.architecture || 'N/A'}</td>
                     <td>${gpu.vram} GB</td>
-                    <td>${gpu.memory_bw} GB/s</td>
+
                     <td>${gpu.totalCards}</td>
                 </tr>`;
                 dom.hwRecommendations.innerHTML += row;
