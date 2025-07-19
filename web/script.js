@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         dom.specificGpuSelect.innerHTML = '';
         hardwareData.forEach(gpu => {
-            const option = new Option(`${gpu.vendor} ${gpu.model} (${gpu.vram}GB)`, JSON.stringify({vendor: gpu.vendor, model: gpu.model}));
+            const option = new Option(`${gpu.vendor} ${gpu.model} (${gpu.architecture || 'N/A'}) (${gpu.vram}GB)`, JSON.stringify({vendor: gpu.vendor, model: gpu.model}));
             dom.specificGpuSelect.add(option);
         });
     }
@@ -1266,6 +1266,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const row = `<tr>
                     <td>${gpu.vendor}</td>
                     <td>${gpu.model}</td>
+                    <td>${gpu.architecture || 'N/A'}</td>
                     <td>${gpu.vram} GB</td>
                     <td>${gpu.memory_bw} GB/s</td>
                     <td>${gpu.totalCards}</td>

@@ -310,12 +310,12 @@
                     <div id="recommend-hw-view">
                         <div class="card-title">💻 推荐硬件</div>
                         <div class="input-group">
-                            <label for="gpu-utilization-recommend">GPU利用率</label>
+                            <label for="gpu-utilization-recommend">异构资源利用率</label>
                             <input type="number" id="gpu-utilization-recommend" step="0.01" min="0.1" max="1" value="0.8" data-default="0.8">
-                            <span class="help-icon">? <span class="tooltip">GPU计算资源的实际利用率，可通过测试程序得到</span></span>
+                            <span class="help-icon">? <span class="tooltip">异构资源的实际利用率，可通过测试程序得到</span></span>
                         </div>
                         <table class="hardware-table">
-                            <thead><tr><th>厂商</th><th>型号</th><th>显存</th><th>显存带宽</th><th>预估卡数</th></tr></thead>
+                            <thead><tr><th>厂商</th><th>型号</th><th>架构</th><th>显存</th><th>显存带宽</th><th>预估卡数</th></tr></thead>
                             <tbody id="hardware-recommendations"></tbody>
                         </table>
                         <div class="specific-choice">
@@ -359,9 +359,9 @@
                             <input type="number" id="custom-interconnect-bw" placeholder="例如：100">
                         </div>
                         <div class="input-group">
-                            <label for="gpu-utilization-custom">GPU利用率</label>
+                            <label for="gpu-utilization-custom">异构硬件利用率</label>
                             <input type="number" id="gpu-utilization-custom" step="0.01" min="0.1" max="1" value="0.8" data-default="0.8">
-                            <span class="help-icon">? <span class="tooltip">GPU计算资源的实际利用率，可通过测试程序得到</span></span>
+                            <span class="help-icon">? <span class="tooltip">异构硬件计算资源的实际利用率，可通过测试程序得到</span></span>
                         </div>
                         <div class="input-group">
                             <button id="calculate-custom-btn" class="action-btn">计算卡数</button>

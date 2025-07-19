@@ -9,7 +9,8 @@
     "perf_int8": 280,
     "perf_int4": null,
     "interconnect_bw": 64,
-    "memory_bw": 408
+    "memory_bw": 408,
+    "architecture": "NPU"
   },
   {
     "vendor": "Huawei",
@@ -21,7 +22,8 @@
     "perf_int8": 280,
     "perf_int4": null,
     "interconnect_bw": 64,
-    "memory_bw": 408
+    "memory_bw": 408,
+    "architecture": "NPU"
   },
   {
     "vendor": "Huawei",
@@ -33,7 +35,8 @@
     "perf_int8": 140,
     "perf_int4": null,
     "interconnect_bw": 64,
-    "memory_bw": 204.8
+    "memory_bw": 204.8,
+    "architecture": "NPU"
   },
   {
     "vendor": "Huawei",
@@ -45,7 +48,8 @@
     "perf_int8": 64,
     "perf_int4": null,
     "interconnect_bw": 15.75,
-    "memory_bw": 204.8
+    "memory_bw": 204.8,
+    "architecture": "NPU"
   },
   {
     "vendor": "Huawei",
@@ -57,7 +61,8 @@
     "perf_int8": 560,
     "perf_int4": null,
     "interconnect_bw": 200,
-    "memory_bw": 204.8
+    "memory_bw": 204.8,
+    "architecture": "NPU"
   },
   {
     "vendor": "Huawei",
@@ -69,7 +74,8 @@
     "perf_int8": 560,
     "perf_int4": null,
     "interconnect_bw": 200,
-    "memory_bw": 1408
+    "memory_bw": 1408,
+    "architecture": "NPU"
   },
   {
     "vendor": "Huawei",
@@ -81,7 +87,8 @@
     "perf_int8": 560,
     "perf_int4": null,
     "interconnect_bw": 200,
-    "memory_bw": 204.8
+    "memory_bw": 204.8,
+    "architecture": "NPU"
   },
   {
     "vendor": "NVIDIA",
@@ -93,7 +100,8 @@
     "perf_int8": 1513,
     "perf_int4": 3026,
     "interconnect_bw": 600,
-    "memory_bw": 2000
+    "memory_bw": 2000,
+    "architecture": "GPU"
   },
   {
     "vendor": "NVIDIA",
@@ -105,7 +113,8 @@
     "perf_int8": 1979,
     "perf_int4": 3958,
     "interconnect_bw": 900,
-    "memory_bw": 3350
+    "memory_bw": 3350,
+    "architecture": "GPU"
   },
   {
     "vendor": "NVIDIA",
@@ -117,7 +126,8 @@
     "perf_int8": 182.2,
     "perf_int4": 364.4,
     "interconnect_bw": 32,
-    "memory_bw": 960
+    "memory_bw": 960,
+    "architecture": "GPU"
   },
   {
     "vendor": "NVIDIA",
@@ -129,7 +139,8 @@
     "perf_int8": 624,
     "perf_int4": 1248,
     "interconnect_bw": 600,
-    "memory_bw": 2039
+    "memory_bw": 2039,
+    "architecture": "GPU"
   },
   {
     "vendor": "NVIDIA",
@@ -141,7 +152,8 @@
     "perf_int8": 624,
     "perf_int4": 1248,
     "interconnect_bw": 64,
-    "memory_bw": 2039
+    "memory_bw": 2039,
+    "architecture": "GPU"
   },
   {
     "vendor": "NVIDIA",
@@ -153,7 +165,8 @@
     "perf_int8": 624,
     "perf_int4": 1248,
     "interconnect_bw": 64,
-    "memory_bw": 1555
+    "memory_bw": 1555,
+    "architecture": "GPU"
   },
   {
     "vendor": "NVIDIA",
@@ -165,7 +178,8 @@
     "perf_int8": 290,
     "perf_int4": 580,
     "interconnect_bw": 100,
-    "memory_bw": 864
+    "memory_bw": 864,
+    "architecture": "GPU"
   },
   {
     "vendor": "NVIDIA",
@@ -177,7 +191,8 @@
     "perf_int8": 181,
     "perf_int4": 362,
     "interconnect_bw": 100,
-    "memory_bw": 864
+    "memory_bw": 864,
+    "architecture": "GPU"
   },
   {
     "vendor": "NVIDIA",
@@ -189,7 +204,8 @@
     "perf_int8": 165.2,
     "perf_int4": 330.4,
     "interconnect_bw": 32,
-    "memory_bw": 1008
+    "memory_bw": 1008,
+    "architecture": "GPU"
   },
   {
     "vendor": "NVIDIA",
@@ -201,7 +217,8 @@
     "perf_int8": 97.4,
     "perf_int4": 194.8,
     "interconnect_bw": 32,
-    "memory_bw": 716.8
+    "memory_bw": 716.8,
+    "architecture": "GPU"
   },
   {
     "vendor": "NVIDIA",
@@ -213,7 +230,8 @@
     "perf_int8": 77.4,
     "perf_int4": 154.8,
     "interconnect_bw": 32,
-    "memory_bw": 768
+    "memory_bw": 768,
+    "architecture": "GPU"
   },
   {
     "vendor": "NVIDIA",
@@ -225,7 +243,8 @@
     "perf_int8": 80.2,
     "perf_int4": 160.4,
     "interconnect_bw": 16,
-    "memory_bw": 504
+    "memory_bw": 504,
+    "architecture": "GPU"
   },
   {
     "vendor": "NVIDIA",
@@ -237,7 +256,8 @@
     "perf_int8": 58.4,
     "perf_int4": 116.8,
     "interconnect_bw": 16,
-    "memory_bw": 504
+    "memory_bw": 504,
+    "architecture": "GPU"
   },
   {
     "vendor": "NVIDIA",
@@ -249,7 +269,8 @@
     "perf_int8": 71.2,
     "perf_int4": 142.4,
     "interconnect_bw": 16,
-    "memory_bw": 936
+    "memory_bw": 936,
+    "architecture": "GPU"
   },
   {
     "vendor": "NVIDIA",
@@ -261,7 +282,8 @@
     "perf_int8": 59.6,
     "perf_int4": 119.2,
     "interconnect_bw": 16,
-    "memory_bw": 760
+    "memory_bw": 760,
+    "architecture": "GPU"
   },
   {
     "vendor": "AMD",
@@ -273,7 +295,8 @@
     "perf_int8": 2614,
     "perf_int4": 5228,
     "interconnect_bw": 448,
-    "memory_bw": 5200
+    "memory_bw": 5200,
+    "architecture": "GPU"
   },
   {
     "vendor": "AMD",
@@ -285,7 +308,8 @@
     "perf_int8": 766,
     "perf_int4": 1532,
     "interconnect_bw": 400,
-    "memory_bw": 3200
+    "memory_bw": 3200,
+    "architecture": "GPU"
   },
   {
     "vendor": "AMD",
@@ -297,7 +321,8 @@
     "perf_int8": 362,
     "perf_int4": 724,
     "interconnect_bw": 64,
-    "memory_bw": 1638
+    "memory_bw": 1638,
+    "architecture": "GPU"
   },
   {
     "vendor": "AMD",
@@ -309,7 +334,8 @@
     "perf_int8": 122.6,
     "perf_int4": 245.2,
     "interconnect_bw": 16,
-    "memory_bw": 960
+    "memory_bw": 960,
+    "architecture": "GPU"
   },
   {
     "vendor": "AMD",
@@ -321,7 +347,8 @@
     "perf_int8": 122.6,
     "perf_int4": 245.2,
     "interconnect_bw": 16,
-    "memory_bw": 960
+    "memory_bw": 960,
+    "architecture": "GPU"
   },
   {
     "vendor": "Google",
@@ -333,7 +360,8 @@
     "perf_int8": 918,
     "perf_int4": 1836,
     "interconnect_bw": 600,
-    "memory_bw": 2760
+    "memory_bw": 2760,
+    "architecture": "TPU"
   },
   {
     "vendor": "Google",
@@ -345,7 +373,8 @@
     "perf_int8": 550,
     "perf_int4": 1100,
     "interconnect_bw": 400,
-    "memory_bw": 1200
+    "memory_bw": 1200,
+    "architecture": "TPU"
   },
   {
     "vendor": "Intel",
@@ -357,7 +386,8 @@
     "perf_int8": 78.8,
     "perf_int4": 157.6,
     "interconnect_bw": 16,
-    "memory_bw": 560
+    "memory_bw": 560,
+    "architecture": "GPU"
   },
   {
     "vendor": "摩尔线程",
@@ -369,7 +399,8 @@
     "perf_int8": 256,
     "perf_int4": 512,
     "interconnect_bw": 100,
-    "memory_bw": 1536
+    "memory_bw": 1536,
+    "architecture": "GPU"
   },
   {
     "vendor": "摩尔线程",
@@ -381,7 +412,8 @@
     "perf_int8": 128,
     "perf_int4": 256,
     "interconnect_bw": 64,
-    "memory_bw": 768
+    "memory_bw": 768,
+    "architecture": "GPU"
   },
   {
     "vendor": "摩尔线程",
@@ -393,7 +425,8 @@
     "perf_int8": 64,
     "perf_int4": 128,
     "interconnect_bw": 32,
-    "memory_bw": 192
+    "memory_bw": 192,
+    "architecture": "GPU"
   },
   {
     "vendor": "天数智芯",
@@ -405,7 +438,8 @@
     "perf_int8": 240,
     "perf_int4": 480,
     "interconnect_bw": 300,
-    "memory_bw": 1200
+    "memory_bw": 1200,
+    "architecture": "GPU"
   },
   {
     "vendor": "天数智芯",
@@ -417,7 +451,8 @@
     "perf_int8": 480,
     "perf_int4": 960,
     "interconnect_bw": 400,
-    "memory_bw": 2400
+    "memory_bw": 2400,
+    "architecture": "GPU"
   },
   {
     "vendor": "壁仞科技",
@@ -429,7 +464,8 @@
     "perf_int8": 512,
     "perf_int4": 1024,
     "interconnect_bw": 300,
-    "memory_bw": 1600
+    "memory_bw": 1600,
+    "architecture": "GPGPU"
   },
   {
     "vendor": "海光",
@@ -441,7 +477,8 @@
     "perf_int8": 294,
     "perf_int4": 588,
     "interconnect_bw": 300,
-    "memory_bw": 1200
+    "memory_bw": 1200,
+    "architecture": "DCU"
   },
   {
     "vendor": "寒武纪",
@@ -453,7 +490,8 @@
     "perf_int8": 256,
     "perf_int4": 512,
     "interconnect_bw": 100,
-    "memory_bw": 1024
+    "memory_bw": 1024,
+    "architecture": "NPU"
   },
   {
     "vendor": "寒武纪",
@@ -465,6 +503,33 @@
     "perf_int8": 512,
     "perf_int4": 1024,
     "interconnect_bw": 300,
-    "memory_bw": 1800
+    "memory_bw": 1800,
+    "architecture": "NPU"
+  },
+  {
+    "vendor": "Intel",
+    "model": "AGMF039R47A1E2VR0",
+    "vram": 16,
+    "perf_fp16": 37,
+    "perf_bf16": 37,
+    "perf_fp8": 0,
+    "perf_int8": 76,
+    "perf_int4": 152,
+    "interconnect_bw": 116,
+    "memory_bw": 410,
+    "architecture": "FPGA"
+  },
+  {
+    "vendor": "AMD",
+    "model": "XCVH1582",
+    "vram": 32,
+    "perf_fp16": 0,
+    "perf_bf16": 0,
+    "perf_fp8": 0,
+    "perf_int8": 51,
+    "perf_int4": 0,
+    "interconnect_bw": 2200,
+    "memory_bw": 820,
+    "architecture": "FPGA"
   }
 ]
