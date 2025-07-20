@@ -1,4 +1,4 @@
-i<div style="text-align: center;">
+<div style="text-align: center;">
 <img src="https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/title.png" alt="title" style="zoom: 33%;" />
 </div>
 
@@ -120,23 +120,23 @@ AICompass/                         # AI模型算力与显存评估工具
        ![image-20250702100003939](https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250702100003939.png)
 
 4. 查看显存占用分析：实时显示内存分布饼图
-5. 
-	<div style="text-align: center;">
-    ![image-20250702100028952](https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250702100028952.png)
-    </div>
+
+<div style="text-align: center;">
+![image-20250702100028952](https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250702100028952.png)
+</div>
 
 5. 获取硬件推荐：
    - 推荐配置：查看适合的 GPU 型号和数量
 
-		<div style="text-align: center;">
-       ![image-20250702100240248](https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250702100240248.png)
-		</div>
+<div style="text-align: center;">
+![image-20250702100240248](https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250702100240248.png)
+</div>
 
    - 自定义配置：输入硬件规格计算所需卡数
 
-		<div style="text-align: center;">
-       ![image-20250702100251440](https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250702100251440.png)
-       </div>
+<div style="text-align: center;">
+![image-20250702100251440](https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250702100251440.png)
+</div>
 
 6. 可选功能：
    - 启动推理速度模拟：观察实时 Token 生成过程
@@ -288,6 +288,7 @@ $$
 **KV缓存显存**：与Dense模型相同
 
 **激活值显存**：
+
 $$
 M_{act\_shared} = B \times S \times H \times F_{shared} \times Q_{act}  \\[1em]
 M_{act\_expert} = B \times S \times E_{active} \times I \times F_{expert} \times Q_{act}  \\[1em]
@@ -530,7 +531,6 @@ SLO（Service Level Objective）是对系统服务质量的量化承诺指标，
 11. Hasan S, Basak S. Open-source AI-powered optimization in scalene: Advancing python performance profiling with DeepSeek-R1 and LLaMA 3.2[J]. arXiv preprint arXiv:2502.10299, 2025.
 12. Gao T, Jin J, Ke Z T, et al. A comparison of deepseek and other LLMs[J]. arXiv preprint arXiv:2502.03688, 2025.
 13. Zhao K, Liu Z, Lei X, et al. Quantifying the Capability Boundary of DeepSeek Models: An Application-Driven Performance Analysis[J]. arXiv preprint arXiv:2502.11164, 2025.
-
 
 
 
