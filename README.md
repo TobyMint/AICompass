@@ -1,4 +1,4 @@
-<div style="text-align: center;">
+i<div style="text-align: center;">
 <img src="https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/title.png" alt="title" style="zoom: 33%;" />
 </div>
 
@@ -94,7 +94,7 @@ AICompass/                         # AI模型算力与显存评估工具
 ## 三、使用方法
 
 1. 打开 index.html 文件（建议使用现代浏览器如 Chrome、Firefox 等）
-
+	
     ![image-20250702095745953](https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250702095745953.png)
 
 2. 选择模型配置方式：
@@ -120,17 +120,23 @@ AICompass/                         # AI模型算力与显存评估工具
        ![image-20250702100003939](https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250702100003939.png)
 
 4. 查看显存占用分析：实时显示内存分布饼图
-
+5. 
+	<div style="text-align: center;">
     ![image-20250702100028952](https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250702100028952.png)
+    </div>
 
 5. 获取硬件推荐：
    - 推荐配置：查看适合的 GPU 型号和数量
 
+		<div style="text-align: center;">
        ![image-20250702100240248](https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250702100240248.png)
+		</div>
 
    - 自定义配置：输入硬件规格计算所需卡数
 
+		<div style="text-align: center;">
        ![image-20250702100251440](https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250702100251440.png)
+       </div>
 
 6. 可选功能：
    - 启动推理速度模拟：观察实时 Token 生成过程
@@ -282,13 +288,10 @@ $$
 **KV缓存显存**：与Dense模型相同
 
 **激活值显存**：
-
 $$
-\begin{align}
-M_{act\_shared} &= B \times S \times H \times F_{shared} \times Q_{act}  \\[1em]
-M_{act\_expert} &= B \times S \times E_{active} \times I \times F_{expert} \times Q_{act}  \\[1em]
-M_{act} &= M_{act\_shared} + M_{act\_expert}
-\end{align}
+M_{act\_shared} = B \times S \times H \times F_{shared} \times Q_{act}  \\[1em]
+M_{act\_expert} = B \times S \times E_{active} \times I \times F_{expert} \times Q_{act}  \\[1em]
+M_{act} = M_{act\_shared} + M_{act\_expert}
 $$
 
 **额外开销显存**：
@@ -328,21 +331,17 @@ $$
 **KV缓存显存**：
 
 $$
-\begin{align}
- S_{total} &= S_{text} + S_{image} \times F_{vision} + S_{audio} \times F_{audio}  \\[1em]
-M_{kv} &= B \times S_{total} \times L \times 2 \times H_{kv} \times D_h \times Q_{kv}
-\end{align}
+ S_{total} = S_{text} + S_{image} \times F_{vision} + S_{audio} \times F_{audio}  \\[1em]
+M_{kv} = B \times S_{total} \times L \times 2 \times H_{kv} \times D_h \times Q_{kv}
 $$
 
 **激活值显存**：
 
 $$
-\begin{align}
-M_{act\_llm} &= B \times S_{text} \times H \times F_{llm} \times Q_{act}  \\[1em]
-M_{act\_vision} &= B \times S_{image} \times H \times F_{vision\_act} \times Q_{act} \\[1em]
-M_{act\_audio} &= B \times S_{audio} \times H \times F_{audio\_act} \times Q_{act} \\[1em]
-M_{act} &= M_{act\_llm} + M_{act\_vision} + M_{act\_audio}
-\end{align}
+M_{act\_llm} = B \times S_{text} \times H \times F_{llm} \times Q_{act}  \\[1em]
+M_{act\_vision} = B \times S_{image} \times H \times F_{vision\_act} \times Q_{act} \\[1em]
+M_{act\_audio} = B \times S_{audio} \times H \times F_{audio\_act} \times Q_{act} \\[1em]
+M_{act} = M_{act\_llm} + M_{act\_vision} + M_{act\_audio}
 $$
 
 **额外开销显存**：
@@ -362,38 +361,32 @@ $$
 #### 稠密模型(Dense)算力计算
 
 $$
-\begin{align}
-C_{prefill} &= \frac{F_{base} \times S_{model} \times L_{in} \times P_{total} \times (1/E_{attn}) \times B}{TTFT} \\[1em]
-C_{token} &= F_{base} \times S_{model} \times (1 + 0.1\log_{10}(L_{seq})) \times P_{total} \times (1/E_{attn}) \times 0.5 \times B \\[1em]
-C_{decode} &= C_{token} \times T \\[1em]
-C &= \max(C_{prefill}, C_{decode}) \times F_{quant} \times E_{batch} \times G_{cal}
-\end{align}
+C_{prefill} = \frac{F_{base} \times S_{model} \times L_{in} \times P_{total} \times (1/E_{attn}) \times B}{TTFT} \\[1em]
+C_{token} = F_{base} \times S_{model} \times (1 + 0.1\log_{10}(L_{seq})) \times P_{total} \times (1/E_{attn}) \times 0.5 \times B \\[1em]
+C_{decode} = C_{token} \times T \\[1em]
+C = \max(C_{prefill}, C_{decode}) \times F_{quant} \times E_{batch} \times G_{cal}
 $$
 
 #### 混合专家模型(MoE)算力计算
 
 $$
-\begin{align}
-P_{effective} &= P_{shared} + P_{expert} \times R_{expert} \\[1em]
-C_{prefill} &= \frac{F_{base} \times S_{model} \times L_{in} \times P_{effective} \times (1/E_{attn}) \times B \times F_{moe}}{TTFT} \\[1em]
-C_{token} &= F_{base} \times S_{model} \times (1 + 0.1\log_{10}(L_{seq})) \times P_{effective} \times (1/E_{attn}) \times 0.5 \times B \times F_{moe} \\[1em]
-C_{decode} &= C_{token} \times T \\[1em]
-C &= \max(C_{prefill}, C_{decode}) \times F_{quant} \times E_{batch} \times G_{cal}
-\end{align}
+P_{effective} = P_{shared} + P_{expert} \times R_{expert} \\[1em]
+C_{prefill} = \frac{F_{base} \times S_{model} \times L_{in} \times P_{effective} \times (1/E_{attn}) \times B \times F_{moe}}{TTFT} \\[1em]
+C_{token} = F_{base} \times S_{model} \times (1 + 0.1\log_{10}(L_{seq})) \times P_{effective} \times (1/E_{attn}) \times 0.5 \times B \times F_{moe} \\[1em]
+C_{decode} = C_{token} \times T \\[1em]
+C = \max(C_{prefill}, C_{decode}) \times F_{quant} \times E_{batch} \times G_{cal}
 $$
 
 #### 多模态模型(Multimodal)算力计算
 
 $$
-\begin{align}
-C_{prefill} &= \frac{F_{base} \times S_{model} \times L_{in} \times P_{base} \times (1/E_{attn}) \times B \times F_{mm}}{TTFT} \\[1em]
-C_{token} &= F_{base} \times S_{model} \times (1 + 0.1\log_{10}(L_{seq})) \times P_{base} \times (1/E_{attn}) \times 0.5 \times B \\[1em]
-C_{decode} &= C_{token} \times T \\[1em]
-C_{vision} &= P_{vision} \times F_{vision} \times B \\[1em]
-C_{audio} &= P_{audio} \times F_{audio} \times B \\[1em]
-C_{modal} &= C_{vision} + C_{audio} \\[1em]
-C &= (\max(C_{prefill}, C_{decode}) + C_{modal}) \times F_{quant} \times E_{batch} \times G_{cal}
-\end{align}
+C_{prefill} = \frac{F_{base} \times S_{model} \times L_{in} \times P_{base} \times (1/E_{attn}) \times B \times F_{mm}}{TTFT} \\[1em]
+C_{token} = F_{base} \times S_{model} \times (1 + 0.1\log_{10}(L_{seq})) \times P_{base} \times (1/E_{attn}) \times 0.5 \times B \\[1em]
+C_{decode} = C_{token} \times T \\[1em]
+C_{vision} = P_{vision} \times F_{vision} \times B \\[1em]
+C_{audio} = P_{audio} \times F_{audio} \times B \\[1em]
+C_{modal} = C_{vision} + C_{audio} \\[1em]
+C = (\max(C_{prefill}, C_{decode}) + C_{modal}) \times F_{quant} \times E_{batch} \times G_{cal}
 $$
 
 ### 硬件需求计算
@@ -401,11 +394,9 @@ $$
 #### 显卡数量计算
 
 $$
-\begin{align}
-N_{mem} &= \lceil M_{total} / M_{gpu} \rceil \\[1em]
-N_{comp} &= \lceil C / (C_{gpu} \times U_{gpu}) \rceil \\[1em]
-N &= \max(N_{mem}, N_{comp}) \\[1em]
-\end{align}
+N_{mem} = \lceil M_{total} / M_{gpu} \rceil \\[1em]
+N_{comp} = \lceil C / (C_{gpu} \times U_{gpu}) \rceil \\[1em]
+N = \max(N_{mem}, N_{comp}) \\[1em]
 $$
 
 ## 六、测试部分
@@ -494,7 +485,9 @@ $$
 
 结果显示 NVIDIA A100-40G PCIe 实际的利用率在 80% 作用。因此我们可以在网页中设置计算卡的利用率为 0.8：
 
+<div style="text-align: center;">
 ![image-20250703113953175](https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250703113953175.png)
+</div>
 
 ### SLO-test
 
