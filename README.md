@@ -487,7 +487,7 @@ $$
 结果显示 NVIDIA A100-40G PCIe 实际的利用率在 80% 作用。因此我们可以在网页中设置计算卡的利用率为 0.8：
 
 <div style="text-align: center;">
-![image-20250703113953175](https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250703113953175.png)
+<img src="https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250703113953175.png" alt="image-20250703113953175" />
 </div>
 
 ### SLO-test
@@ -531,6 +531,7 @@ SLO（Service Level Objective）是对系统服务质量的量化承诺指标，
 11. Hasan S, Basak S. Open-source AI-powered optimization in scalene: Advancing python performance profiling with DeepSeek-R1 and LLaMA 3.2[J]. arXiv preprint arXiv:2502.10299, 2025.
 12. Gao T, Jin J, Ke Z T, et al. A comparison of deepseek and other LLMs[J]. arXiv preprint arXiv:2502.03688, 2025.
 13. Zhao K, Liu Z, Lei X, et al. Quantifying the Capability Boundary of DeepSeek Models: An Application-Driven Performance Analysis[J]. arXiv preprint arXiv:2502.11164, 2025.
+
 
 
 
