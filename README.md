@@ -1,4 +1,6 @@
+<div style="text-align: center;">
 <img src="https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/title.png" alt="title" style="zoom: 33%;" />
+</div>
 
 ## 一、项目简介
 
@@ -10,7 +12,9 @@
 
 🔗**体验链接：**[http://siborn.top](http://siborn.top)
 
+<div style="text-align: center;">
 <img src="https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250720103819728.png" alt="image-20250720103819728" style="zoom:33%;" />
+</div>
 
 👨‍💻**团队成员：**季玮晔、许博文
 
@@ -230,22 +234,31 @@ AICompass/                         # AI模型算力与显存评估工具
 稠密模型的显存占用主要包括模型权重、KV缓存、激活值和额外开销四部分：
 
 **模型权重显存**：
+
 $$
 M_{weights} = P_{total} \times Q_{weight}
 $$
+
 **KV缓存显存**：
+
 $$
 M_{kv} = B \times S \times L \times 2 \times H_{kv} \times D_h \times Q_{kv}
 $$
+
 **激活值显存**：
+
 $$
 M_{act} = B \times S \times H \times F_{act} \times Q_{act}
 $$
+
 **额外开销显存**：
+
 $$
 M_{overhead} = (M_{weights} + M_{kv} + M_{act}) \times R_{overhead}
 $$
+
 **总显存**：
+
 $$
 M_{total} = M_{weights} + M_{kv} + M_{act} + M_{overhead}
 $$
@@ -261,6 +274,7 @@ M_{shared} = P_{shared} \times Q_{weight}
 $$
 
 **专家权重显存**：
+
 $$
 M_{expert} = P_{expert} \times E \times Q_{weight}
 $$
@@ -268,6 +282,7 @@ $$
 **KV缓存显存**：与Dense模型相同
 
 **激活值显存**：
+
 $$
 \begin{align}
 M_{act\_shared} &= B \times S \times H \times F_{shared} \times Q_{act}  \\[1em]
@@ -277,6 +292,7 @@ M_{act} &= M_{act\_shared} + M_{act\_expert}
 $$
 
 **额外开销显存**：
+
 $$
 M_{overhead} = (M_{shared} + M_{expert} + M_{kv} + M_{act}) \times R_{overhead}
 $$
@@ -330,6 +346,7 @@ M_{act} &= M_{act\_llm} + M_{act\_vision} + M_{act\_audio}
 $$
 
 **额外开销显存**：
+
 $$
 M_{overhead} = (M_{base} + M_{vision} + M_{audio} + M_{kv} + M_{act}) \times R_{overhead}
 $$
@@ -520,6 +537,7 @@ SLO（Service Level Objective）是对系统服务质量的量化承诺指标，
 11. Hasan S, Basak S. Open-source AI-powered optimization in scalene: Advancing python performance profiling with DeepSeek-R1 and LLaMA 3.2[J]. arXiv preprint arXiv:2502.10299, 2025.
 12. Gao T, Jin J, Ke Z T, et al. A comparison of deepseek and other LLMs[J]. arXiv preprint arXiv:2502.03688, 2025.
 13. Zhao K, Liu Z, Lei X, et al. Quantifying the Capability Boundary of DeepSeek Models: An Application-Driven Performance Analysis[J]. arXiv preprint arXiv:2502.11164, 2025.
+
 
 
 
