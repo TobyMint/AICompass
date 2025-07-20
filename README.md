@@ -122,20 +122,20 @@ AICompass/                         # AI模型算力与显存评估工具
 4. 查看显存占用分析：实时显示内存分布饼图
 
 <div style="text-align: center;">
-![image-20250702100028952](https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250702100028952.png)
+<img src="https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250702100028952.png" alt="image-20250702100028952" />
 </div>
 
 5. 获取硬件推荐：
    - 推荐配置：查看适合的 GPU 型号和数量
 
 <div style="text-align: center;">
-![image-20250702100240248](https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250702100240248.png)
+<img src="https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250702100240248.png" alt="image-20250702100240248" />
 </div>
 
    - 自定义配置：输入硬件规格计算所需卡数
 
 <div style="text-align: center;">
-![image-20250702100251440](https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250702100251440.png)
+<img src="https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250702100251440.png" alt="image-20250702100251440" />
 </div>
 
 6. 可选功能：
