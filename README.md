@@ -1,59 +1,67 @@
-# AICompass：模型对算力等效建模评估工具
+<img src="https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/title.png" alt="title" style="zoom: 33%;" />
 
 ## 一、项目简介
 
-**AICompass** 是一款**模型对算力等效建模评估工具**，专注于解决大模型（百亿至万亿参数）在多样化硬件平台上的显存占用预测与硬件配置推荐问题。区别于传统显存计算器，AICompass 通过实测驱动建模，结合模型结构精细化分析与硬件性能实测工具，为用户提供高精度、场景化的部署方案。以下是核心创新与技术亮点：
+🚀**AICompass** 是一套面向**异构算力场景**的智能评估工具，能够在**可视化界面**根据各类大模型参数及结构，计算其显存及算力需求，智能推荐满足服务指标要求的异构硬件所需配置方案。
 
-### 核心工作：模型显存占用与硬件需求精准建模
+📊同时提供算力及互联带宽**测试工具**，从大模型推理部署需求出发，搭建跨架构统一表征框架，精准测量异构加速卡性能。
 
-1. **多类模型显存精细化计算**
+🔍通过大量的**测试实验**，修正计算公式，显存占用预测误差控制在**5%**以内，推荐的硬件配置能够满足吞吐量指标要求，助力智算中心实现从“盲目建设”到“按需供给”的转型。
 
-    支持多种复杂架构：
+🔗**体验链接：**[http://siborn.top](http://siborn.top)
 
-    - **稠密模型（Dense）**：经典 Transformer 结构，显存计算涵盖权重、KV Cache、激活值。
-    - **稀疏模型（MoE）**：混合专家架构，显存划分专家权重、路由参数、共享权重及额外开销。
-    - **多模态模型（Multimodal）**：融合视觉、语音等模态，显存计算涵盖跨模态权重与多源输入开销。
+<img src="https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250720103819728.png" alt="image-20250720103819728" style="zoom:33%;" />
 
-2. **硬件部署智能推荐**
+👨‍💻**团队成员：**季玮晔、许博文
 
-    - **跨架构硬件适配**：支持 NVIDIA/昇腾/国产加速卡等异构硬件，根据显存容量与算力需求推荐卡数。
-    - **场景化 SLO 约束**：结合用户定义的延迟目标（TTFT≤500ms, TPOT≤50ms），动态计算满足服务水平的卡数配置。
+🎓**指导老师：**杨鹏飞
 
-### 技术突破：实测验证与工具链支撑
+### 1.1 赛题完成情况
 
-1. **算力与访存性能实测工具**
-    - **算力测试工具**：通过 PyTorch Profiler 提取大模型典型GEMM算子尺寸，测试加速卡实际算力（如 A100 实测算力达理论值80%）。
-    - **访存测试工具**：以 LayerNorm 算子为基准，测量显存带宽瓶颈，反映 Decode 阶段真实性能。
-    - **开源验证程序**：显存预测误差 ≤ 5%（ Llama2/Mixtral/LLaVA 等模型实测），测试代码已开源（https://gitlink.org.cn/xZdSqXeGT6/mxdsldxjmpg.git）。
-2. **SLO场景验证**
-    - 成功验证 **671B 大模型部署**：针对国产加速卡（96GB显存，123 TFLOPS BF16 算力），推荐 16 卡配置并通过 vLLM  Benchmark 实测达标（TTFT/TPOT 满足 SLO）。
+| 赛题要求                                                     | 完成情况                                                     |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 支持多种模型类型，模型参数，量化方案，并发量，最大tokens数等负载建模能力 | ✅支持主流稠密、稀疏、多模态大模型，支持自定义模型结构参数，支持自定义负载及服务指标 |
+| 支持多种硬件资源，显存，卡数等资源抽象能力                   | ✅支持国内外异构硬件，包括GPU、TPU、NPU、FPGA等，能够智能推荐硬件配置需求 |
+| 建模方案。提供详细的负载、硬件资源的建模方案描述，给出度量依据、建模方法、参考文献、算法依据、计算过程等 | ✅支持显存占用分析，支持通过算力及互联带宽计算硬件需求，并详细给出计算公式、以及算法依据 |
+| 算力需求预测误差：不同测试用例下，度量工具输出的模型算力需求与实际运行真值偏差 | ✅经过实测验证，在不同输入负载下，各部分显存计算误差不超过5%，推荐硬件配置能够满足吞吐量要求 |
+| 代码结构清晰，模块化设计，便于维护和扩展。重要代码注释完整。且必须完全开源 | ✅网页、算力测试工具、可视化绘图代码全部开源并配有完整注释    |
+| 文档详细清晰，包含安装方式及使用方法                         | ✅使用方法见详细本README文档及说明书                          |
 
-### 对比传统工具的核心优势
+### 1.2 核心工作
+
+**（1）可视化平台 🖼️：**通过网页部署形式展示评估工具，用户可以通过**桌面端或移动端**浏览器访问，方便直观。网页支持主流或自定义大模型，支持稠密、稀疏、多模态大模型，以**可视化方式**展示各部分显存占用情况。选定部署指标及服务指标要求，页面能够给出异构硬件最小部署需求。另外提供**推理速度模拟**，供服务指标修改参考。
+
+**（2）算力测试工具🔬：**提供一套针对异构硬件的算力及互联带宽测试工具，通过实验分析，确定大模型推理部署**算子及其尺寸**，构建统一的算力及互联带宽**等效建模能力**，解决理论值难以精确预测硬件需求的问题，从而提供准确的硬件方案建议，测试工具代码已开源。
+
+**（3）充分实测验证💻：**本项目选取受广泛认可的经典模型，如 **llama\mixtral\llava** 等，对不同的输入负载，测试不同并发量下的模型各部分显存占用，经对比误差小于**5%**。对某国产加速卡，使用评估工具建议的硬件配置，对**DeepSeek-R1 671B**满血版进行测试，能够满足服务指标及吞吐量要求，测试及可视化代码已开源。
+
+| 创新点                             | **完成情况** |
+| ---------------------------------- | ------------ |
+| 支持自定义模型、自定义硬件         | ✅            |
+| 根据模型类型精确划分显存占比       | ✅            |
+| 使用经验因子控制额外开销计算       | ✅            |
+| 通过算力评估工具实测硬件真实算力   | ✅            |
+| 通过模型部署实测确定显存计算准确性 | ✅            |
+| 通过SLO测试确定推荐卡数达标情况    | ✅            |
+
+### 1.3 对比其他工具的核心优势
 
 |     **能力**     |           **AICompass**           | **市面现有工具** |
 | :--------------: | :-------------------------------: | :--------------: |
 |    自定义模型    |     ✅ 支持任意参数/注意力机制     |  ❌ 仅限固定模型  |
 | 多模态与稀疏模型 |   ✅ Dense/MoE/Multimodal 全覆盖   |   ❌ 仅稠密模型   |
-|    硬件兼容性    | ✅ NVIDIA/昇腾/国产卡 + 自定义硬件 |  ❌ 有限硬件支持  |
+|    硬件兼容性    | ✅ 国内外异构加速硬件 + 自定义硬件 |  ❌ 有限硬件支持  |
 |   显存计算粒度   |  ✅ 权重/KV Cache/激活值/量化分项  |  ❌ 简单总量估算  |
 | 延迟目标驱动部署 |   ✅ 基于 TTFT/TPOT 动态推荐卡数   | ❌ 仅显存容量计算 |
 |     实测验证     |     ✅ 开源测试程序 + ≤5% 误差     |   ❌ 无验证机制   |
 
-### 应用价值
+### 1.4 应用价值
 
-AICompass 服务于**大模型推理部署决策**，解决开发者三大痛点：
+AICompass 服务于**大模型推理部署决策**，解决开发者三大痛点，助力智算中心建设：
 
-1. **显存估算不准** → 精细模型公式 + 多场景实测验证；
-2. **硬件选型盲目** → 跨架构卡数推荐 + SLO 约束；
-3. **部署成本过高** → 量化方案支持 + 推理框架优化建议。
-
-**​团队成员​**​：季玮晔、许博文
-
-**指导老师：**杨鹏飞
-
-**体验入口**：扫描下列二维码，即刻使用自定义模型/硬件配置功能！
-
-![image-20250703094910099](https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250703094910099.png)
+1. **显存估算不准**💡 → 精细模型公式 + 多场景实测验证；
+2. **硬件选型盲目**🎲→ 跨架构卡数推荐 + SLO 约束；
+3. **部署成本过高**📈  → 量化方案支持 + 推理框架优化建议。
 
 ## 二、项目结构
 
@@ -72,7 +80,6 @@ AICompass/                         # AI模型算力与显存评估工具
 └── web/                           # Web界面模块
     ├── data/                      # 静态数据文件
     │   ├── gpu.json               # GPU硬件参数配置数据
-    │   ├── logo_old.png           # 项目旧版logo图标
     │   ├── logo.png               # 项目logo图标
     │   └── model.json             # 预设模型参数配置数据
     ├── index.html                 # 主页面HTML文件
@@ -498,7 +505,21 @@ SLO（Service Level Objective）是对系统服务质量的量化承诺指标，
 | 32     | 907.97   | 36.43    | 1605.56          |
 | 64     | 1647.62  | 52.12    | 2191.91          |
 
+## 参考文献
 
+1. Vaswani A, Shazeer N, Parmar N, et al. Attention is all you need[J]. Advances in neural information processing systems, 2017, 30.
+2. Han K, Xiao A, Wu E, et al. Transformer in transformer[J]. Advances in neural information processing systems, 2021, 34: 15908-15919.
+3. Silva L, Barbosa L. Improving dense retrieval models with LLM augmented data for dataset search[J]. Knowledge-based systems, 2024, 294: 111740.
+4. Wang S, Chen Z, Li B, et al. Scaling laws across model architectures: A comparative analysis of dense and MoE models in large language models[J]. arXiv preprint arXiv:2410.05661, 2024.
+5. Du X, Gunter T, Kong X, et al. Revisiting moe and dense speed-accuracy comparisons for llm training[J]. arXiv preprint arXiv:2405.15052, 2024.
+6. Shen L, Chen G, Shao R, et al. Mome: Mixture of multimodal experts for generalist multimodal large language models[J]. Advances in neural information processing systems, 2024, 37: 42048-42070.
+7. Liang W, Yu L, Luo L, et al. Mixture-of-transformers: A sparse and scalable architecture for multi-modal foundation models[J]. arXiv preprint arXiv:2411.04996, 2024.
+8. Li Y, Jiang S, Hu B, et al. Uni-moe: Scaling unified multimodal llms with mixture of experts[J]. IEEE Transactions on Pattern Analysis and Machine Intelligence, 2025.
+9. Zacarias F V, Palli K, Vazhkudai S, et al. Analyzing LLM performance: The impact of high-bandwidth memory on model inference[J].
+10. Na S, Jeong G, Ahn B H, et al. Understanding performance implications of llm inference on cpus[C]//2024 IEEE International Symposium on Workload Characterization (IISWC). IEEE, 2024: 169-180.
+11. Hasan S, Basak S. Open-source AI-powered optimization in scalene: Advancing python performance profiling with DeepSeek-R1 and LLaMA 3.2[J]. arXiv preprint arXiv:2502.10299, 2025.
+12. Gao T, Jin J, Ke Z T, et al. A comparison of deepseek and other LLMs[J]. arXiv preprint arXiv:2502.03688, 2025.
+13. Zhao K, Liu Z, Lei X, et al. Quantifying the Capability Boundary of DeepSeek Models: An Application-Driven Performance Analysis[J]. arXiv preprint arXiv:2502.11164, 2025.
 
 
 
