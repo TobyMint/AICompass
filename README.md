@@ -10,10 +10,10 @@
 
 🔍通过大量的**测试实验**，修正计算公式，显存占用预测误差控制在**5%**以内，推荐的硬件配置能够满足吞吐量指标要求，助力智算中心实现从“盲目建设”到“按需供给”的转型。
 
-🔗**体验链接：**[http://siborn.top](http://siborn.top)
+🔗**体验链接：**[https://siborn.top](http://siborn.top)
 
 <div style="text-align: center;">
-<img src="https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250720103819728.png" alt="image-20250720103819728" style="zoom:33%;" />
+<img src="https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250908110502575.png" alt="image-20250908110502575" style="zoom:33%;" />
 </div>
 
 👨‍💻**团队成员：**季玮晔、许博文
@@ -94,7 +94,7 @@ AICompass/                         # AI模型算力与显存评估工具
 ## 三、使用方法
 
 1. 打开 index.html 文件（建议使用现代浏览器如 Chrome、Firefox 等）
-	
+
     ![image-20250702095745953](https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250702095745953.png)
 
 2. 选择模型配置方式：
@@ -122,21 +122,20 @@ AICompass/                         # AI模型算力与显存评估工具
 4. 查看显存占用分析：实时显示内存分布饼图
 
 <div style="text-align: center;">
-<img src="https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250702100028952.png" alt="image-20250702100028952" />
-</div>
+<img src="https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250702100028952.png" alt="image-20250702100028952" style="zoom: 67%;" />
+<div>
 
 5. 获取硬件推荐：
    - 推荐配置：查看适合的 GPU 型号和数量
+   
 
-<div style="text-align: center;">
-<img src="https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250702100240248.png" alt="image-20250702100240248" />
-</div>
+<img src="https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250908110835930.png" alt="image-20250908110835930" style="zoom:67%;" />
+
 
    - 自定义配置：输入硬件规格计算所需卡数
 
-<div style="text-align: center;">
-<img src="https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250702100251440.png" alt="image-20250702100251440" />
-</div>
+<img src="https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250702100251440.png" alt="image-20250702100251440" style="zoom:67%;" />
+
 
 6. 可选功能：
    - 启动推理速度模拟：观察实时 Token 生成过程
@@ -487,7 +486,7 @@ $$
 结果显示 NVIDIA A100-40G PCIe 实际的利用率在 80% 作用。因此我们可以在网页中设置计算卡的利用率为 0.8：
 
 <div style="text-align: center;">
-<img src="https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250703113953175.png" alt="image-20250703113953175" />
+<img src="https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250908111451208.png" alt="image-20250908111451208" />
 </div>
 
 ### SLO-test
@@ -506,15 +505,45 @@ SLO（Service Level Objective）是对系统服务质量的量化承诺指标，
 
 通过我们的 AICompass 项目，我们得出如果要部署项目，需要使用 16 卡的配置。经过 vllm benchmark 的测试，最终得出结论：实际部署的性能能够达到用户目标吞吐量。
 
-| 并发量 | TTFT(ms) | TPOT(ms) | 吞吐量(tokens/s) |
-| ------ | -------- | -------- | ---------------- |
-| 1      | 139.76   | 12.44    | 154.57           |
-| 2      | 221.97   | 15.29    | 248.23           |
-| 4      | 242.4    | 18.47    | 413.39           |
-| 8      | 412.9    | 25.09    | 601.25           |
-| 16     | 499.16   | 28.87    | 1041.63          |
-| 32     | 907.97   | 36.43    | 1605.56          |
-| 64     | 1647.62  | 52.12    | 2191.91          |
+- 短输入短输出：
+
+    | 并发量 | TTFT(ms) | TPOT(ms) | 吞吐量  (tokens/s) |
+    | ------ | -------- | -------- | ------------------ |
+    | 1      | 56.03    | 20.72    | 47.62              |
+    | 8      | 156.04   | 32.74    | 237.16             |
+    | 16     | 221.9    | 37.8     | 407.43             |
+    | 32     | 349.12   | 45.07    | 673.69             |
+    | 64     | 524.92   | 56.04    | 1068.52            |
+
+- 短输入长输出：
+
+    | 并发量 | TTFT(ms) | TPOT(ms) | 吞吐量  (tokens/s) |
+    | ------ | -------- | -------- | ------------------ |
+    | 1      | 55.9     | 20.99    | 47.61              |
+    | 8      | 155.8    | 33.73    | 236.72             |
+    | 16     | 223.13   | 40.32    | 395.93             |
+    | 32     | 347.34   | 49.04    | 650.52             |
+    | 64     | 1982.07  | 63.97    | 848.73             |
+
+- 长输入短输出：
+
+    | 并发量 | TTFT(ms) | TPOT(ms) | 吞吐量  (tokens/s) |
+    | ------ | -------- | -------- | ------------------ |
+    | 1      | 193.96   | 20.63    | 45.49              |
+    | 2      | 288.14   | 22.97    | 188.57             |
+    | 4      | 483.73   | 26.71    | 277.94             |
+    | 8      | 895.98   | 35.62    | 384.58             |
+    | 16     | 1455.39  | 46.35    | 352.26             |
+
+- 长输入长输出：
+
+    | 并发量 | TTFT(ms) | TPOT(ms) | 吞吐量  (tokens/s) |
+    | ------ | -------- | -------- | ------------------ |
+    | 1      | 195.19   | 20.04    | 49.68              |
+    | 2      | 288.84   | 22.56    | 234.43             |
+    | 4      | 472.61   | 26.01    | 388.75             |
+    | 8      | 895.77   | 33.7     | 462.8              |
+    | 16     | 1456.85  | 40.45    | 483.83             |
 
 ## 参考文献
 
@@ -531,7 +560,6 @@ SLO（Service Level Objective）是对系统服务质量的量化承诺指标，
 11. Hasan S, Basak S. Open-source AI-powered optimization in scalene: Advancing python performance profiling with DeepSeek-R1 and LLaMA 3.2[J]. arXiv preprint arXiv:2502.10299, 2025.
 12. Gao T, Jin J, Ke Z T, et al. A comparison of deepseek and other LLMs[J]. arXiv preprint arXiv:2502.03688, 2025.
 13. Zhao K, Liu Z, Lei X, et al. Quantifying the Capability Boundary of DeepSeek Models: An Application-Driven Performance Analysis[J]. arXiv preprint arXiv:2502.11164, 2025.
-
 
 
 
