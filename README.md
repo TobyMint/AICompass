@@ -12,9 +12,9 @@
 
 🔗**体验链接：**[链接](http://49.233.184.99:8000)
 
-<div style="text-align: center;">
+<!-- <div style="text-align: center;">
 <img src="https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250908110502575.png" alt="image-20250908110502575" style="zoom:33%;" />
-</div>
+</div> -->
 
 👨‍💻**团队成员：**季玮晔、许博文
 
