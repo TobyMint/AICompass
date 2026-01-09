@@ -10,7 +10,7 @@
 
 🔍通过大量的**测试实验**，修正计算公式，显存占用预测误差控制在**5%**以内，推荐的硬件配置能够满足吞吐量指标要求，助力智算中心实现从“盲目建设”到“按需供给”的转型。
 
-🔗**体验链接：**[https://siborn.top](http://siborn.top)
+🔗**体验链接：**[链接](http://49.233.184.99:8000)
 
 <div style="text-align: center;">
 <img src="https://xubowen-bucket.oss-cn-beijing.aliyuncs.com/img/image-20250908110502575.png" alt="image-20250908110502575" style="zoom:33%;" />
